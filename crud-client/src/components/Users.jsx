@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const Users = ({ users, setUsers }) => {
 	const handleUserDelete = (userId) => {
@@ -33,7 +34,9 @@ const Users = ({ users, setUsers }) => {
 							<td>{user.email}</td>
 							<td>
 								<button className="badge badge-primary mr-2 cursor-pointer">Edit</button>
-								<button className="badge badge-primary mr-2 cursor-pointer">See Details</button>
+								<Link to={`/users/${user._id}`}>
+									<button className="badge badge-primary mr-2 cursor-pointer">See Details</button>
+								</Link>
 								<button onClick={() => handleUserDelete(user._id)} className="badge badge-secondary cursor-pointer">
 									Delete
 								</button>
