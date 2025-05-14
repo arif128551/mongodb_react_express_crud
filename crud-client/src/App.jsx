@@ -1,6 +1,7 @@
 import { use, useState } from "react";
 import "./App.css";
 import Users from "./components/Users";
+import Header from "./components/Header";
 const userPromise = fetch("http://localhost:3000/users").then((res) => res.json());
 function App() {
 	const initialUsers = use(userPromise);
@@ -30,24 +31,27 @@ function App() {
 			});
 	};
 	return (
-		<div className="p-20 min-h-screen">
-			<div className="p-20  bg-base-200">
-				<div className="hero">
-					<div className="">
-						<div className="card bg-base-100 w-[500px]  shrink-0 shadow-2xl">
-							<form className="card-body" onSubmit={handleAddUser}>
-								<label className="label">Name</label>
-								<input type="text" name="name" className="input w-full" placeholder="Name" />
-								<label className="label">Email</label>
-								<input type="email" name="email" className="input w-full" placeholder="Email" />
+		<div className="container mx-auto">
+			<Header></Header>
+			<div className="p-20 min-h-screen">
+				<div className="p-20  bg-base-200">
+					<div className="hero">
+						<div className="">
+							<div className="card bg-base-100 w-[500px]  shrink-0 shadow-2xl">
+								<form className="card-body" onSubmit={handleAddUser}>
+									<label className="label">Name</label>
+									<input type="text" name="name" className="input w-full" placeholder="Name" />
+									<label className="label">Email</label>
+									<input type="email" name="email" className="input w-full" placeholder="Email" />
 
-								<button className="btn btn-neutral mt-4">Submit</button>
-							</form>
+									<button className="btn btn-neutral mt-4">Submit</button>
+								</form>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div className="p-14 bg-white mt-16 rounded-2xl max-w-[900px] mx-auto">
-					<Users users={users} setUsers={setUsers}></Users>
+					<div className="p-14 bg-white mt-16 rounded-2xl max-w-[900px] mx-auto">
+						<Users users={users} setUsers={setUsers}></Users>
+					</div>
 				</div>
 			</div>
 		</div>

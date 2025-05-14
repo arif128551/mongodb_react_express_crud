@@ -33,6 +33,7 @@ const Users = ({ users, setUsers }) => {
 							<td>{user.email}</td>
 							<td>
 								<button className="badge badge-primary mr-2 cursor-pointer">Edit</button>
+								<button className="badge badge-primary mr-2 cursor-pointer">See Details</button>
 								<button onClick={() => handleUserDelete(user._id)} className="badge badge-secondary cursor-pointer">
 									Delete
 								</button>
